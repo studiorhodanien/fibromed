@@ -886,21 +886,38 @@
 
             .header-content {
                 flex-direction: column;
-                gap: 12px;
-                padding: 8px 0;
+                gap: 8px;
+                padding: 6px 0;
+            }
+
+            .logo {
+                height: 40px;
             }
 
             nav {
                 position: static;
                 transform: none;
-                gap: 14px;
-                font-size: 13px;
+                gap: 10px 16px;
                 flex-wrap: wrap;
                 justify-content: center;
             }
 
+            nav a {
+                font-size: 13px;
+            }
+
             .lang-switcher {
                 order: -1;
+            }
+
+            .lang-current {
+                padding: 3px 8px;
+                font-size: 12px;
+            }
+
+            .lang-flag svg {
+                width: 16px;
+                height: 11px;
             }
 
             .footer-star {
@@ -994,15 +1011,15 @@
         <div class="container">
             <div class="stats-grid">
                 <div>
-                    <div class="stat-number">~80</div>
+                    <div class="stat-number">~<span class="counter" data-target="80">0</span></div>
                     <div class="stat-label" data-i18n="stat1_label">Appareils réparés</div>
                 </div>
                 <div>
-                    <div class="stat-number">8 ans</div>
+                    <div class="stat-number"><span class="counter" data-target="8">0</span> <span data-i18n="unit_years">ans</span></div>
                     <div class="stat-label" data-i18n="stat2_label">D'expertise</div>
                 </div>
                 <div>
-                    <div class="stat-number">3 jours</div>
+                    <div class="stat-number"><span class="counter" data-target="3">0</span> <span data-i18n="unit_days">jours</span></div>
                     <div class="stat-label" data-i18n="stat3_label">Délai moyen réparation</div>
                 </div>
             </div>
@@ -1473,6 +1490,8 @@
                 stat1_label: "أجهزة تم إصلاحها",
                 stat2_label: "من الخبرة",
                 stat3_label: "متوسط مدة الإصلاح",
+                unit_years: "سنوات",
+                unit_days: "أيام",
 
                 services_title: "خدماتنا",
                 services_subtitle: "تكفل شامل بمناظيركم الطبية",
