@@ -677,6 +677,8 @@
             color: white;
             padding: 16px 40px !important;
             font-size: 16px !important;
+            border-radius: 8px;
+            font-weight: 600;
         }
 
         .contact-info {
@@ -864,6 +866,11 @@
 
             .hero {
                 background-attachment: scroll;
+            }
+
+            header {
+                background-size: auto, 100% auto;
+                background-position: center, center;
             }
 
             .hero-content,
@@ -1367,7 +1374,7 @@
                     <div style="width: 64px; height: 64px; background: #0A66C2; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;"><svg viewBox="0 0 24 24" width="34" height="34" fill="white"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></div>
                     <h3>LinkedIn</h3>
                     <p data-i18n="linkedin_desc">Connectez-vous et suivez notre actualité.</p>
-                    <button class="btn-linkedin" data-i18n="linkedin_btn">Visiter LinkedIn</button>
+                    <a href="https://www.linkedin.com/company/fibromed/" target="_blank" class="btn-linkedin" style="display: inline-block;" data-i18n="linkedin_btn">Visiter LinkedIn</a>
                 </div>
             </div>
 
@@ -1444,30 +1451,39 @@
             event.target.reset();
         }
 
-        // Animer les compteurs
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            counters.forEach(counter => {
-                const target = parseFloat(counter.getAttribute('data-target'));
-                const isDecimal = target % 1 !== 0;
-                let current = 0;
-                const increment = target / 50;
+        // Animer un compteur individuel, lentement, sur une durée fixe
+        function animateCounter(counter) {
+            const target = parseFloat(counter.getAttribute('data-target'));
+            const isDecimal = target % 1 !== 0;
+            const duration = 2500;
+            const start = performance.now();
 
-                const updateCounter = () => {
-                    current += increment;
-                    if (current < target) {
-                        counter.textContent = isDecimal ? current.toFixed(1) : Math.floor(current);
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        counter.textContent = target;
-                    }
-                };
-                updateCounter();
-            });
+            const step = (now) => {
+                const progress = Math.min((now - start) / duration, 1);
+                const current = target * progress;
+                counter.textContent = isDecimal ? current.toFixed(1) : Math.floor(current);
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                } else {
+                    counter.textContent = isDecimal ? target.toFixed(1) : target;
+                }
+            };
+            requestAnimationFrame(step);
         }
 
-        // Démarrer l'animation quand la page se charge
-        window.addEventListener('load', animateCounters);
+        // Déclenche l'animation uniquement quand le chiffre entre dans l'écran
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.counter').forEach(counter => {
+            counterObserver.observe(counter);
+        });
     </script>
 
     <script>
