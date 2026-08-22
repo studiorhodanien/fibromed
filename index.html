@@ -858,6 +858,14 @@
         }
 
         @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero {
+                background-attachment: scroll;
+            }
+
             .hero-content,
             .service-detail,
             .services-grid,
@@ -866,19 +874,68 @@
             .stats-grid,
             .process-grid,
             .footer-grid,
-            .form-row {
-                grid-template-columns: 1fr;
+            .form-row,
+            .info-row,
+            .market-stats-grid {
+                grid-template-columns: 1fr !important;
             }
 
             .hero-text h1 {
-                font-size: 32px;
+                font-size: 28px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 12px;
+                padding: 8px 0;
             }
 
             nav {
-                gap: 15px;
-                font-size: 12px;
+                position: static;
+                transform: none;
+                gap: 14px;
+                font-size: 13px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
 
+            .lang-switcher {
+                order: -1;
+            }
+
+            .footer-star {
+                width: 180px;
+                height: 180px;
+                right: -50px;
+                opacity: 0.1;
+            }
+
+            iframe {
+                height: 260px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 26px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons button {
+                width: 100%;
+            }
+
+            nav {
+                gap: 10px;
+                font-size: 12px;
+            }
         }
     </style>
 </head>
@@ -990,7 +1047,7 @@
     <section style="background: linear-gradient(135deg, #2F397E 0%, #1a2350 100%); color: white; padding: 80px 0;">
         <div class="container">
             <h2 class="section-title" style="color: white; margin-bottom: 60px;" data-i18n="market_title">Chiffres clés du marché de l'endoscopie</h2>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
+            <div class="market-stats-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
                 <!-- Stat 1 -->
                 <div style="text-align: center; padding: 40px; background: rgba(255,255,255,0.1); border-radius: 12px; border: 1px solid rgba(166, 201, 72, 0.3);">
                     <div style="font-size: 48px; font-weight: 700; color: #A6C948; margin-bottom: 12px;">
