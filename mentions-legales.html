@@ -34,7 +34,9 @@ nav a:hover { color: #A6C948; }
 .legal-content .placeholder { background: rgba(166, 201, 72, 0.15); color: #6B5E1E; padding: 1px 6px; border-radius: 4px; font-weight: 600; }
 .legal-content .back-link { display: inline-block; margin-top: 40px; font-weight: 600; }
 
-footer { background: #2F397E; color: white; padding: 40px 0; }
+footer { background: #2F397E; color: white; padding: 40px 0; position: relative; overflow: hidden; }
+.footer-star { position: absolute; top: 50%; right: -60px; width: 390px; height: 390px; transform: translateY(-50%) rotate(18deg); opacity: 0.14; pointer-events: none; z-index: 0; }
+footer .footer-grid, footer .footer-bottom { position: relative; z-index: 1; }
 .footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; margin-bottom: 30px; max-width: 1200px; margin-left: auto; margin-right: auto; padding: 0 40px; }
 .footer-grid h3 { font-size: 16px; font-weight: 600; margin-bottom: 12px; }
 .footer-grid p { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.6; }
@@ -135,6 +137,9 @@ html[dir="rtl"] .lang-option { text-align: right; }
     </section>
 
     <footer>
+        <svg class="footer-star" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100,10 L152.9,172.8 L14.4,72.2 L185.6,72.2 L47.1,172.8 Z" fill="none" stroke="white" stroke-width="9" stroke-linejoin="miter"/>
+        </svg>
         <div class="footer-grid">
             <div>
                 <h3>Fibromed</h3>
