@@ -561,71 +561,86 @@
             margin-top: 4px;
         }
 
-        /* BLOG */
-        .blog-section {
+        /* FAQ */
+        .faq-section {
             padding: 80px 0;
             background: linear-gradient(135deg, #FBFCFA 0%, rgba(106, 181, 220, 0.08) 100%);
         }
 
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .blog-card {
+        .faq-item {
             border: 1px solid #E7EAE3;
             border-radius: 12px;
-            overflow: hidden;
             background: #FBFCFA;
-            transition: all 0.3s;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: border-color 0.3s;
         }
 
-        .blog-card:hover {
+        .faq-item:hover {
             border-color: #A6C948;
-            box-shadow: 0 4px 12px rgba(166, 201, 72, 0.1);
         }
 
-        .blog-image {
-            background: #E7EAE3;
-            height: 180px;
+        .faq-question {
             display: flex;
             align-items: center;
-            justify-content: center;
-            flex-direction: column;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 20px 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-family: inherit;
         }
 
-        .blog-content {
-            padding: 24px;
-        }
-
-        .blog-tag {
-            font-size: 12px;
-            color: #A6C948;
-            font-weight: 600;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-
-        .blog-card h3 {
+        .faq-question h3 {
             font-size: 16px;
             font-weight: 600;
             color: #2F397E;
-            margin-bottom: 12px;
             line-height: 1.4;
+            margin: 0;
         }
 
-        .blog-card p {
+        .faq-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #A6C948;
+            font-size: 20px;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 24px;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 400px;
+            padding: 0 24px 20px;
+        }
+
+        .faq-answer p {
             font-size: 13px;
             color: #6B7280;
             line-height: 1.6;
-            margin-bottom: 16px;
-        }
-
-        .blog-link {
-            font-size: 13px;
-            font-weight: 600;
-            color: #2F397E;
+            margin: 0;
         }
 
         /* CONTACT */
@@ -889,7 +904,7 @@
             .hero-content,
             .service-detail,
             .services-grid,
-            .blog-grid,
+            .faq-list,
             .contact-grid,
             .stats-grid,
             .process-grid,
@@ -990,7 +1005,7 @@
                     <a href="#accueil" data-i18n="nav_accueil">Accueil</a>
                     <a href="#services" data-i18n="nav_services">Services</a>
                     <a href="#devis" data-i18n="nav_devis">Devis</a>
-                    <a href="#blog" data-i18n="nav_blog">Blog</a>
+                    <a href="#faq" data-i18n="nav_faq">FAQ</a>
                     <a href="#contact" data-i18n="nav_contact">Contact</a>
                 </nav>
                 <div class="lang-switcher" id="langSwitcher">
@@ -1292,61 +1307,59 @@
         </div>
     </section>
 
-    <!-- BLOG -->
-    <section id="blog" class="blog-section">
+    <!-- FAQ -->
+    <section id="faq" class="faq-section">
         <div class="container">
-            <h2 class="section-title" data-i18n="blog_title">Ressources & Blog</h2>
-            <p class="section-subtitle" data-i18n="blog_subtitle">Conseils et guides pour la maintenance de vos endoscopes</p>
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <div class="placeholder-box">📖</div>
-                        <div class="placeholder-sub">Image 4</div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-tag" data-i18n="blog1_tag">Guide</div>
-                        <h3 data-i18n="blog1_title">Comment entretenir vos endoscopes au quotidien</h3>
-                        <p data-i18n="blog1_desc">Bonnes pratiques de manipulation et d'entretien quotidien pour prolonger la durée de vie de vos équipements.</p>
-                        <a href="#" class="blog-link" data-i18n="blog_link_read">Lire l'article →</a>
+            <h2 class="section-title" data-i18n="faq_title">Questions fréquentes</h2>
+            <p class="section-subtitle" data-i18n="faq_subtitle">Les réponses aux questions les plus posées sur la maintenance de vos endoscopes</p>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <h3 data-i18n="faq1_q">À quelle fréquence faut-il entretenir un endoscope ?</h3>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq1_a">Un contrôle et un nettoyage sont recommandés après chaque utilisation, avec une maintenance préventive complète tous les 6 à 12 mois selon la fréquence d'usage.</p>
                     </div>
                 </div>
 
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <div class="placeholder-box">🧼</div>
-                        <div class="placeholder-sub">Image 5</div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-tag" data-i18n="blog2_tag">Normes</div>
-                        <h3 data-i18n="blog2_title">Normes de désinfection des endoscopes</h3>
-                        <p data-i18n="blog2_desc">Conformité aux exigences sanitaires et protocoles de désinfection recommandés pour la sécurité.</p>
-                        <a href="#" class="blog-link" data-i18n="blog_link_read">Lire l'article →</a>
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <h3 data-i18n="faq2_q">Quelles normes de désinfection appliquez-vous ?</h3>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq2_a">Nous suivons les protocoles de désinfection de haut niveau conformes aux exigences sanitaires en vigueur, afin de garantir la sécurité de vos patients et de votre équipe.</p>
                     </div>
                 </div>
 
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <div class="placeholder-box">📊</div>
-                        <div class="placeholder-sub">Image 6</div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-tag" data-i18n="blog3_tag">Comparaison</div>
-                        <h3 data-i18n="blog3_title">Olympus vs Pentax vs Fujifilm</h3>
-                        <p data-i18n="blog3_desc">Comparaison détaillée des principales marques d'endoscopes : caractéristiques et points forts.</p>
-                        <a href="#" class="blog-link" data-i18n="blog_link_read">Lire l'article →</a>
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <h3 data-i18n="faq3_q">Intervenez-vous sur toutes les marques d'endoscopes ?</h3>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq3_a">Oui, nous assurons la maintenance et la réparation des endoscopes Olympus, Pentax, Fujifilm et de la plupart des autres marques du marché.</p>
                     </div>
                 </div>
 
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <div class="placeholder-box">❓</div>
-                        <div class="placeholder-sub">Image 7</div>
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <h3 data-i18n="faq4_q">Quel est le délai moyen de réparation ?</h3>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq4_a">Le délai dépend de la nature de la panne, mais nous nous efforçons de vous proposer un diagnostic rapide et une réparation dans les plus brefs délais pour limiter l'immobilisation de votre matériel.</p>
                     </div>
-                    <div class="blog-content">
-                        <div class="blog-tag" data-i18n="blog4_tag">FAQ</div>
-                        <h3 data-i18n="blog4_title">Questions fréquentes sur la maintenance</h3>
-                        <p data-i18n="blog4_desc">Réponses aux questions les plus posées par nos clients concernant l'entretien des endoscopes.</p>
-                        <a href="#" class="blog-link" data-i18n="blog_link_faq">Voir la FAQ →</a>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        <h3 data-i18n="faq5_q">Proposez-vous un devis gratuit ?</h3>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq5_a">Oui, chaque demande fait l'objet d'un devis gratuit et sans engagement, établi après diagnostic de votre équipement.</p>
                     </div>
                 </div>
             </div>
@@ -1365,7 +1378,7 @@
                     <div style="width: 64px; height: 64px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;"><svg viewBox="0 0 24 24" width="34" height="34" fill="white"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.67c2.2 0 4.26.86 5.82 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24m-4.53 4.72c-.16 0-.42.06-.64.31-.22.24-.85.83-.85 2.02 0 1.2.87 2.35.99 2.51.12.16 1.7 2.72 4.19 3.7 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.97-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.35-.76-1.84-.2-.48-.4-.42-.55-.42-.14-.01-.3-.01-.46-.01z"/></svg></div>
                     <h3>WhatsApp</h3>
                     <p data-i18n="wa_desc">Le moyen le plus rapide. Réponse généralement en quelques minutes.</p>
-                    <a href="https://wa.me/212645912100" target="_blank" class="btn-whatsapp" style="display: inline-block;" data-i18n="wa_btn">Ouvrir WhatsApp</a>
+                    <a href="https://wa.me/33670187101" target="_blank" class="btn-whatsapp" style="display: inline-block;" data-i18n="wa_btn">Ouvrir WhatsApp</a>
                 </div>
 
                 <div class="contact-card">
@@ -1424,7 +1437,7 @@
                     <ul>
                         <li><a href="#accueil" data-i18n="nav_accueil">Accueil</a></li>
                         <li><a href="#services" data-i18n="nav_services">Services</a></li>
-                        <li><a href="#blog" data-i18n="nav_blog">Blog</a></li>
+                        <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
                         <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
                     </ul>
                 </div>
@@ -1445,7 +1458,7 @@
     </footer>
 
     <!-- WHATSAPP FLOATING BUTTON -->
-    <a href="https://wa.me/212645912100" target="_blank" class="whatsapp-float" aria-label="Contacter Fibromed sur WhatsApp" data-i18n-aria="wa_float_aria">
+    <a href="https://wa.me/33670187101" target="_blank" class="whatsapp-float" aria-label="Contacter Fibromed sur WhatsApp" data-i18n-aria="wa_float_aria">
         <svg viewBox="0 0 24 24" fill="white"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.67c2.2 0 4.26.86 5.82 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24m-4.53 4.72c-.16 0-.42.06-.64.31-.22.24-.85.83-.85 2.02 0 1.2.87 2.35.99 2.51.12.16 1.7 2.72 4.19 3.7 2.07.82 2.49.66 2.94.62.45-.04 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.97-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.35-.76-1.84-.2-.48-.4-.42-.55-.42-.14-.01-.3-.01-.46-.01z"/></svg>
     </a>
 
@@ -1497,7 +1510,7 @@
                 nav_accueil: "الرئيسية",
                 nav_services: "الخدمات",
                 nav_devis: "طلب عرض سعر",
-                nav_blog: "المدونة",
+                nav_faq: "الأسئلة الشائعة",
                 nav_contact: "اتصل بنا",
 
                 hero_subtitle: "صيانة وإصلاح المناظير الطبية",
@@ -1587,22 +1600,18 @@
                 checkbox_terms: "أوافق على شروط الاستخدام وسياسة الخصوصية",
                 btn_submit_quote: "إرسال الطلب",
 
-                blog_title: "الموارد والمدونة",
-                blog_subtitle: "نصائح وأدلة لصيانة مناظيركم الطبية",
-                blog1_tag: "دليل",
-                blog1_title: "كيف تعتنون بمناظيركم الطبية يوميا",
-                blog1_desc: "أفضل ممارسات الاستخدام والصيانة اليومية لإطالة عمر معداتكم.",
-                blog_link_read: "قراءة المقال ←",
-                blog2_tag: "معايير",
-                blog2_title: "معايير تعقيم المناظير الطبية",
-                blog2_desc: "الامتثال للمتطلبات الصحية وبروتوكولات التعقيم الموصى بها للسلامة.",
-                blog3_tag: "مقارنة",
-                blog3_title: "Olympus مقابل Pentax مقابل Fujifilm",
-                blog3_desc: "مقارنة مفصلة لأهم ماركات المناظير الطبية: الخصائص ونقاط القوة.",
-                blog4_tag: "الأسئلة الشائعة",
-                blog4_title: "أسئلة شائعة حول الصيانة",
-                blog4_desc: "إجابات على أكثر الأسئلة تكرارا من عملائنا حول صيانة المناظير الطبية.",
-                blog_link_faq: "عرض الأسئلة الشائعة ←",
+                faq_title: "الأسئلة الشائعة",
+                faq_subtitle: "إجابات على أكثر الأسئلة تكرارا حول صيانة مناظيركم الطبية",
+                faq1_q: "ما هي وتيرة صيانة المنظار الطبي؟",
+                faq1_a: "يُنصح بالفحص والتنظيف بعد كل استخدام، مع صيانة وقائية كاملة كل 6 إلى 12 شهرا حسب وتيرة الاستخدام.",
+                faq2_q: "ما هي معايير التعقيم التي تطبقونها؟",
+                faq2_a: "نتبع بروتوكولات التعقيم عالي المستوى المطابقة للمتطلبات الصحية المعمول بها، لضمان سلامة مرضاكم وفريقكم.",
+                faq3_q: "هل تتدخلون على جميع ماركات المناظير الطبية؟",
+                faq3_a: "نعم، نضمن صيانة وإصلاح مناظير Olympus وPentax وFujifilm ومعظم الماركات الأخرى في السوق.",
+                faq4_q: "ما هي المدة المتوسطة للإصلاح؟",
+                faq4_a: "تعتمد المدة على طبيعة العطل، لكننا نسعى لتقديم تشخيص سريع وإصلاح في أقصر الآجال للحد من توقف معداتكم.",
+                faq5_q: "هل تقدمون عرض أسعار مجاني؟",
+                faq5_a: "نعم، كل طلب يخضع لعرض أسعار مجاني وبدون التزام، يُحدد بعد تشخيص معداتكم.",
 
                 contact_title: "اتصلوا بنا",
                 contact_subtitle: "عدة طرق للتواصل معنا",
@@ -1683,6 +1692,17 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.faq-item').forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const isOpen = item.classList.contains('open');
+                    document.querySelectorAll('.faq-item.open').forEach(openItem => {
+                        if (openItem !== item) openItem.classList.remove('open');
+                    });
+                    item.classList.toggle('open', !isOpen);
+                });
+            });
+
             const switcher = document.getElementById('langSwitcher');
             const currentBtn = document.getElementById('langCurrentBtn');
 
