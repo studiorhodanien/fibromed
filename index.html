@@ -1542,7 +1542,7 @@
                 } else {
                     statusEl.style.background = 'rgba(220, 53, 69, 0.12)';
                     statusEl.style.color = '#a32a36';
-                    statusEl.textContent = errorMsg;
+                    statusEl.textContent = errorMsg + (result.message ? ' (' + result.message + ')' : '');
                     statusEl.style.display = 'block';
                 }
             } catch (err) {
