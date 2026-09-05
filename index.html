@@ -1006,7 +1006,6 @@
                 <nav>
                     <a href="#accueil" data-i18n="nav_accueil">Accueil</a>
                     <a href="#services" data-i18n="nav_services">Services</a>
-                    <a href="#devis" data-i18n="nav_devis">Devis</a>
                     <a href="#faq" data-i18n="nav_faq">FAQ</a>
                     <a href="#contact" data-i18n="nav_contact">Contact</a>
                 </nav>
@@ -1034,7 +1033,7 @@
                     <h1 data-i18n="hero_title">Expertise technique au service de vos endoscopes</h1>
                     <p data-i18n="hero_text">Fibromed accompagne les hôpitaux et cliniques de tout le Maroc : réparation rapide de vos endoscopes, maintenance préventive et contrats de maintenance sur mesure. Forts de 9 années d'expertise, nos techniciens mettent leur savoir-faire à votre service pour garantir la fiabilité de vos équipements.</p>
                     <div class="hero-buttons">
-                        <button class="btn-primary" onclick="document.querySelector('#devis').scrollIntoView({behavior: 'smooth'})" data-i18n="hero_btn_primary">Demander un devis</button>
+                        <button class="btn-primary" onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'})" data-i18n="hero_btn_primary">Demander un devis</button>
                         <button class="btn-secondary" onclick="document.querySelector('#services').scrollIntoView({behavior: 'smooth'})" data-i18n="hero_btn_secondary">En savoir plus</button>
                     </div>
                 </div>
@@ -1240,81 +1239,6 @@
         </div>
     </section>
 
-    <!-- QUOTE FORM -->
-    <section id="devis" class="quote-section">
-        <div class="container">
-            <h2 class="section-title" data-i18n="quote_title">Demander un devis</h2>
-            <p class="section-subtitle" data-i18n="quote_subtitle">Envoyez-nous les détails de votre demande et nous vous répondrons rapidement</p>
-            <div class="form-container">
-                <form id="quoteForm" onsubmit="handleQuoteSubmit(event)">
-                    <input type="hidden" name="access_key" value="9c77378e-6e0b-4f21-9f0a-d52357a7f374">
-                    <input type="hidden" name="subject" value="Nouvelle demande de devis - Fibromed">
-                    <input type="hidden" name="from_name" value="Formulaire de devis - Fibromed">
-                    <input type="checkbox" name="botcheck" style="display: none;" tabindex="-1" autocomplete="off">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label data-i18n="label_fullname">Nom complet</label>
-                            <input type="text" name="fullname" placeholder="Votre nom" data-i18n-placeholder="placeholder_fullname" required>
-                        </div>
-                        <div class="form-group">
-                            <label data-i18n="label_email">Email</label>
-                            <input type="email" name="email" placeholder="votre@email.com" required>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label data-i18n="label_org">Structure / Hôpital</label>
-                            <input type="text" name="structure" placeholder="Nom établissement" data-i18n-placeholder="placeholder_org" required>
-                        </div>
-                        <div class="form-group">
-                            <label data-i18n="label_phone">Téléphone</label>
-                            <input type="tel" name="telephone" placeholder="+33 6 xx xx xx xx" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label data-i18n="label_service_type">Type de service</label>
-                        <select name="type_service" required>
-                            <option value="" data-i18n="opt_select_service">Sélectionnez un service</option>
-                            <option data-i18n="opt_svc_preventive">Maintenance préventive</option>
-                            <option data-i18n="opt_svc_repair">Réparation/Dépannage</option>
-                            <option data-i18n="opt_svc_contract">Contrat annuel</option>
-                            <option data-i18n="opt_svc_other">Autre</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label data-i18n="label_brands">Marque(s) d'endoscopes</label>
-                        <input type="text" name="marques" placeholder="Ex: Olympus, Pentax, Fujifilm" data-i18n-placeholder="placeholder_brands" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label data-i18n="label_describe">Décrivez votre besoin</label>
-                        <textarea name="message" placeholder="Détails de votre demande..." data-i18n-placeholder="placeholder_describe" required></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label data-i18n="label_documents">Documents (optionnel)</label>
-                        <label class="upload-box" for="quoteAttachment" style="display: block; cursor: pointer;">
-                            <div style="font-size: 24px; margin-bottom: 8px;">📎</div>
-                            <p style="font-size: 13px; color: #6B7280;" id="quoteUploadText" data-i18n="upload_text">Cliquez pour télécharger des documents (photos, specs, etc.)</p>
-                        </label>
-                        <input type="file" id="quoteAttachment" name="attachment" multiple style="display: none;" onchange="updateFileLabel(this, 'quoteUploadText')">
-                    </div>
-
-                    <div class="checkbox-group">
-                        <input type="checkbox" required>
-                        <label style="margin: 0;" data-i18n="checkbox_terms">J'accepte les conditions d'utilisation et la politique de confidentialité</label>
-                    </div>
-
-                    <div id="quoteFormStatus" style="display: none; margin-bottom: 16px; padding: 14px 16px; border-radius: 8px; font-size: 14px; font-weight: 600;"></div>
-
-                    <button type="submit" class="btn-primary" style="width: 100%; padding: 16px;" data-i18n="btn_submit_quote">Envoyer ma demande</button>
-                </form>
-            </div>
-        </div>
-    </section>
 
     <!-- FAQ -->
     <section id="faq" class="faq-section">
@@ -1622,7 +1546,6 @@
             ar: {
                 nav_accueil: "الرئيسية",
                 nav_services: "الخدمات",
-                nav_devis: "طلب عرض سعر",
                 nav_faq: "الأسئلة الشائعة",
                 nav_contact: "اتصل بنا",
 
